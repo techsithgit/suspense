@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import Loader from "./suspense/loader";
+
+
+
+//npm run build
+import "./App.css";
+
+const Tag = React.lazy(() => import("./suspense/Tag"));
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Suspense fallback={<Loader />}>
+          <Tag val={"hello"} />
+        </Suspense>
       </header>
     </div>
   );
 }
 
 export default App;
+
+//suspense for data fetching is a new feature ,  so wait for data
+// it could be image , script, any assettts. 
+//https://codesandbox.io/s/fragrant-glade-8huj6
