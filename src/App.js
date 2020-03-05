@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Loader from "./suspense/loader";
 
-
+//comment added 
 
 //npm run build
 import "./App.css";
